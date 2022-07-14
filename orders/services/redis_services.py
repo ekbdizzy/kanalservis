@@ -24,10 +24,10 @@ def get_value_from_redis(key: str):
         return
 
 
-def set_value_to_redis(key: str, value: str | dict):
+def set_value_to_redis(key: str, value: str):
     r = redis.Redis.from_url(
         url=settings.REDIS_URL,
         decode_responses=True,
     )
     if _is_redis_available(r):
-        return r.set(key, str(value))
+        return r.set(key, value)
