@@ -1,7 +1,6 @@
 from pathlib import Path
 from environs import Env
 
-
 env = Env()
 env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,6 +9,18 @@ SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
+GOOGLE_SHEETS_URL = env.str('GOOGLE_SHEETS_URL')
+GOOGLE_CLIENT_SECRET = env.json('GOOGLE_CLIENT_SECRET')
+GOOGLE_SPREADSHEET_ID = env('GOOGLE_SPREADSHEET_ID')
+GOOGLE_SHEETS_SCOPES = [
+    'https://www.googleapis.com/auth/spreadsheets.readonly',
+]
+
+REDIS_URL = env('REDIS_URL')
+
+GOOGLE_SHEET_NAME = 'Sheet1'
+ORDERS_DEFAULT_AMOUNT = 100
+ORDERS_AMOUNT_INCREASE_BY = 50
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,13 +31,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'orders',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
