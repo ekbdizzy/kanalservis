@@ -61,3 +61,4 @@ def fetch_from_google_sheets(orders_amount=settings.ORDERS_DEFAULT_AMOUNT) -> li
 
     except HttpError as err:
         print(err)
+
