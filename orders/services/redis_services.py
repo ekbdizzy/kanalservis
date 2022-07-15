@@ -1,7 +1,7 @@
-from contextlib import suppress
 import json
-import redis
+from contextlib import suppress
 
+import redis
 from django.conf import settings
 
 
@@ -13,7 +13,7 @@ def _is_redis_available(redis_instance: redis.Redis) -> bool:
 
 
 def get_value_from_redis(key: str):
-    r = redis.Redis.from_url(
+    r = redis.Redis.from_url(  # NOQA VNE001
         url=settings.REDIS_URL,
         decode_responses=True,
     )
@@ -25,7 +25,7 @@ def get_value_from_redis(key: str):
 
 
 def set_value_to_redis(key: str, value: str):
-    r = redis.Redis.from_url(
+    r = redis.Redis.from_url(  # NOQA VNE001
         url=settings.REDIS_URL,
         decode_responses=True,
     )

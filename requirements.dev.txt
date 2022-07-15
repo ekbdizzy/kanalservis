@@ -1,0 +1,21 @@
+-r requirements.txt
+
+pre-commit==2.20.0
+
+isort==5.10.1
+flake8==4.0.1
+flake8-black==0.3.2
+black==22.3.0
+
+flake8-length
+flake8-bugbear
+flake8-builtins
+pep8-naming
+flake8-commas
+flake8-variables-names
+flake8-import-order
+flake8-functions
+flake8-class-attributes-order
+flake8-expression-complexity
+flake8-cognitive-complexity
+flake8-match==1.0.0
