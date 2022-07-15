@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-
 from orders.services import fetch_from_google_sheets
 from orders.services.cbr_services import serialize_orders_with_rubbles
 
