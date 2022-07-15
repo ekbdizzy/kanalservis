@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from environs import Env
 
 env = Env()
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'django_extensions',
     'orders',
 ]
 
@@ -55,8 +57,7 @@ ROOT_URLCONF = 'kanalservis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

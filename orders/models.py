@@ -4,7 +4,11 @@ from django.db import models
 
 class Order(models.Model):
     number = models.PositiveIntegerField('№', unique=True, db_index=True)
-    order_number = models.PositiveIntegerField('Заказ №', unique=True, db_index=True)
+    order_number = models.PositiveIntegerField(
+        'Заказ №',
+        unique=True,
+        db_index=True,
+    )
     dollar_price = models.DecimalField(
         'Стоимость, $',
         decimal_places=0,
@@ -21,10 +25,9 @@ class Order(models.Model):
     )
     delivery_date = models.DateField('Дата поставки')
 
-    def __str__(self):
-        return f'Заказ № {self.order_number}, стоимость: {self.dollar_price}$'
-
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
-        ordering = ('delivery_date',)
+
+    def __str__(self):
+        return f'{self.number} Заказ № {self.order_number}, стоимость: {self.dollar_price}$'  # Noqa E501
